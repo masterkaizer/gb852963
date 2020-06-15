@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-"start": "nodemon ./app.js",
+"start": "nodemon app.js",
 "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build"
