@@ -18,7 +18,7 @@
     "express": "^4.16.3",
     "helmet": "^3.15.0",
     "lodash": "^4.17.13",
-    "mongoose": "^5.2.14",
+    "mongoose": "^5.7.5",
     "mongoose-delete": "^0.4.0",
     "mongoose-timestamp": "^0.6.0",
     "nocache": "^2.0.0"
