@@ -17,8 +17,8 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 //Adding middleware
-app.use(express.static('client/build));
-   app.use(routes);                    
+app.use(express.static(path.join(__dirname,'client/build')));
+app.use(routes);                    
 app.use(cors());
 app.use(bodyparser.json({ limit: '50mb', extended: true }));
 // bodyParser = {
