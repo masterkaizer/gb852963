@@ -46,5 +46,9 @@ router.delete('/:id',async(req,res)=>{
         res.status(400).json('Something went wrong!!! Please try again.');
     }
 })
+router.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 
 module.exports = router;
