@@ -2,6 +2,7 @@
   "name": "googlebooksearch",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   
   "dependencies": {
     "@material-ui/core": "^4.10.1",
@@ -13,7 +14,8 @@
     "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-router-dom": "^4.3.1",
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,7 +38,6 @@
       "last 1 safari version"
     ]
   },
-"proxy": "http://localhost:5000",
   "devDependencies": {
     "concurrently": "^5.2.0"
   }
