@@ -2,11 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const nocache = require('nocache');
+const path = require('path');
+
+const mongoose = require("mongoose");
 
 const app = express();
 
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 // Checking application environment
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
@@ -24,6 +27,8 @@ app.use(bodyparser.json({ limit: '50mb', extended: true }));
 //     urlencoded: { limit: '50mb', extended: true }
 // }
 // app.use(bodyParser);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+
 app.use(nocache());
 app.use(express.static(__dirname + '/dist/quotationTool/'));
 require('./startup/routes')(app);
@@ -33,6 +38,6 @@ if (process.env.NODE_ENV == 'production') {
     require('./startup/prod')(app);
 }
 
-app.listen(port, () => {
-    console.log('Server started at port ' + port);
+app.listen(PORT, () => {
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
