@@ -23,7 +23,7 @@ export default class SaveComp extends React.Component {
 
     getBooks() {
 
-        Axios.get('http://localhost:5000/api/books').then(
+        Axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title).then(
             res => {
                 console.log(res.data)
                 this.setState({ items: res.data })
@@ -49,7 +49,7 @@ export default class SaveComp extends React.Component {
         }
 
         console.log(obj)
-        Axios.post('http://localhost:5000/api/books', obj).then(
+        Axios.post('/api/books', obj).then(
             res => {
                 console.log(res)
             },
@@ -61,7 +61,7 @@ export default class SaveComp extends React.Component {
 
     delete = (id) => {
 
-        Axios.delete(`http://localhost:5000/api/books/${id}`).then(
+        Axios.delete(`/api/books/${id}`).then(
             res => {
                 console.log(res.data)
                 this.props.snack('Book Deleted','error')
