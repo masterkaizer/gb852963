@@ -32,10 +32,6 @@ require('./startup/db')();
 if (process.env.NODE_ENV == 'production') {
     require('./startup/prod')(app);
 }
-if (process.env.NODE_ENV == 'production') {
-    app.use(express.static("client/build"));
-}
-
 momgoose.connect(process.env.MONGODB_URI || "mongodb://bbsb65:Blaugranna-19@ds225038.mlab.com:25038/heroku_x9k82rmj")
 app.listen(port, () => {
     console.log('Server started at port ' + port);
