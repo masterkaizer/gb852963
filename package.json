@@ -6,8 +6,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-   "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node app.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
@@ -28,7 +28,8 @@
     "mongoose": "^5.2.14",
     "mongoose-delete": "^0.4.0",
     "mongoose-timestamp": "^0.6.0",
-    "nocache": "^2.0.0"
+    "nocache": "^2.0.0",
+    "react-scripts": "^3.4.1"
   },
   "devDependencies": {
     "ejs-lint": "^0.3.0",
