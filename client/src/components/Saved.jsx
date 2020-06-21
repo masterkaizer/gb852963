@@ -21,7 +21,7 @@ export default class SaveComp extends React.Component {
     }
 
 
-    getBooks() {
+    getBooks(title) {
 
         Axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title).then(
             res => {
