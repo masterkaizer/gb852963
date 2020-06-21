@@ -67,7 +67,7 @@ export default class SearchComp extends React.Component {
         }
 
         console.log(obj)
-        Axios.post('http://localhost:5000/api/books', obj).then(
+        Axios.post('/api/books', obj).then(
             res => {
                 console.log(res)
                 this.props.snack('Book saved successfully', 'success')
