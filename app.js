@@ -32,6 +32,7 @@ require('./startup/db')();
 if (process.env.NODE_ENV == 'production') {
     require('./startup/prod')(app);
 }
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/books");
 
 app.listen(port, () => {
     console.log('Server started at port ' + port);
