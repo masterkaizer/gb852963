@@ -6,7 +6,7 @@ const nocache = require('nocache');
 const app = express();
 
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 // Checking application environment
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
@@ -32,7 +32,9 @@ require('./startup/db')();
 if (process.env.NODE_ENV == 'production') {
     require('./startup/prod')(app);
 }
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
-app.listen(port, () => {
-    console.log('Server started at port ' + port);
+// Start the API server
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
