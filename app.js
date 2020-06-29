@@ -3,8 +3,6 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const nocache = require('nocache');
 
-// const mongoose = require("mongoose");
-
 const app = express();
 
 
@@ -34,7 +32,7 @@ require('./startup/db')();
 if (process.env.NODE_ENV == 'production') {
     require('./startup/prod')(app);
 }
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
+
 
 // Start the API server
 app.listen(PORT, function () {
