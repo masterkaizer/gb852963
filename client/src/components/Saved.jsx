@@ -49,7 +49,7 @@ export default class SaveComp extends React.Component {
         }
 
         console.log(obj)
-        Axios.post('/api/books', obj).then(
+        Axios.post('api/books', obj).then(
             res => {
                 console.log(res)
             },
@@ -61,7 +61,7 @@ export default class SaveComp extends React.Component {
 
     delete = (id) => {
 
-        Axios.delete(`/api/books/${id}`).then(
+        Axios.delete(`api/books/${id}`).then(
             res => {
                 console.log(res.data)
                 this.props.snack('Book Deleted','error')
