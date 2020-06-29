@@ -23,7 +23,7 @@ export default class SaveComp extends React.Component {
 
     getBooks() {
 
-        Axios.get('https://www.googleapis.com/books/v1/volumes?q=').then(
+        Axios.get('http://localhost:5000/api/books').then(
             res => {
                 console.log(res.data)
                 this.setState({ items: res.data })
@@ -49,7 +49,7 @@ export default class SaveComp extends React.Component {
         }
 
         console.log(obj)
-        Axios.post('/api/books', obj).then(
+        Axios.post('http://localhost:5000/api/books', obj).then(
             res => {
                 console.log(res)
             },
@@ -61,7 +61,7 @@ export default class SaveComp extends React.Component {
 
     delete = (id) => {
 
-        Axios.delete(`/api/books/${id}`).then(
+        Axios.delete(`http://localhost:5000/api/books/${id}`).then(
             res => {
                 console.log(res.data)
                 this.props.snack('Book Deleted','error')
@@ -80,28 +80,17 @@ export default class SaveComp extends React.Component {
                     {this.state.items ?
                         this.state.items.map((item, i) => {
                             let { title, image, link, authors, description, _id } = item
-                            
                             return (
                                 <Card style={{ margin: '15px 0' }}>
-                                    {/* Cards are surfaces that display content and actions on a single topic.
-
-They should be easy to scan for relevant and actionable information. Elements, like text and images, 
-should be placed on them in a way that clearly indicates hierarchy. */}
                                     <CardContent>
-                                    {/* Thanks to search on CSS tricks, I have used: The Material Design responsive layout grid adapts to screen size and orientation, ensuring consistency across layouts.
-                                    The grid system is implemented with the Grid component: It uses CSS’s Flexible Box module for high flexibility.
-                               There are two types of layout: containers and items.
-                                Item widths are set in percentages, so they are always fluid and sized relative to their parent element.
-                           Items have padding to create the spacing between individual items.
-                              There are five grid breakpoints: xs, sm, md, lg, and xl. */}
                                         <Grid container spacing={3}>
                                             <Grid item xs={8}>
                                                 <h3>{title}</h3>
                                                 {authors ? <p>
-                                                    Written By &ens;
+                                                    Written By &ensp;
                                                     {authors.map(name => {
                                                         return (
-                                                            <span>{name},&ens;</span>
+                                                            <span>{name},&ensp;</span>
                                                         )
                                                     })}
                                                 </p> : null}
